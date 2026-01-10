@@ -37,11 +37,11 @@ def read_cars_from_file(filename):
         return cars
         
     except FileNotFoundError:
-        print(f"Файл '{filename}' не найден!")
-        return None
+        print(f"Файл '{filename}' не найден! Будет создан новый при сохранении.")
+        return []  # Возвращаем пустой список вместо None
     except Exception as e:
         print(f"Ошибка при чтении файла: {e}")
-        return None
+        return []
 
 
 def write_report(cars, title, filename):
