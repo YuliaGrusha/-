@@ -34,7 +34,7 @@ def display_reports_menu():
     print("\n" + "="*80)
     print("СОЗДАНИЕ ОТЧЕТОВ")
     print("="*80)
-    print("1. Все автомобили (год(по убыванию) + цена(по возрастанию))")
+    print("1. Все автомобили (год ↓ + цена ↑)")
     print("2. Автомобили определенной марки")
     print("3. Автомобили в диапазоне цен")
     print("4. Вернуться в главное меню")
@@ -68,26 +68,32 @@ def handle_reports_operations(cars_data):
         choice = input("\nВыбор: ").strip()
         
         if choice == '1':
+            # Отчет 1
             sorted_cars = create_report1_all_cars(cars_data)
             if sorted_cars:
+                # Сохраняем в файл
                 write_report(sorted_cars,
-                           "ОТЧЕТ 1: Все автомобили (год выпуска ↓ + цена ↑)",
+                           "ОТЧЕТ 1: Все автомобили (сортировка: год выпуска ↓ + цена ↑)",
                            "отчет1.txt")
         
         elif choice == '2':
+            # Отчет 2
             result = create_report2_by_brand(cars_data)
             if result:
                 sorted_cars, brand = result
+                # Сохраняем в файл
                 write_report(sorted_cars,
-                           f"ОТЧЕТ 2: Автомобили марки {brand} (тип кузова ↑ + год ↓ + цена ↑)",
+                           f"ОТЧЕТ 2: Автомобили марки {brand} (сортировка: тип кузова ↑ + год ↓ + цена ↑)",
                            "отчет2.txt")
         
         elif choice == '3':
+            # Отчет 3
             result = create_report3_by_price_range(cars_data)
             if result:
                 sorted_cars, min_p, max_p = result
+                # Сохраняем в файл
                 write_report(sorted_cars,
-                           f"ОТЧЕТ 3: Автомобили в диапазоне цен ${min_p:.0f}-${max_p:.0f} (цена ↑ + пробег ↑)",
+                           f"ОТЧЕТ 3: Автомобили в диапазоне цен ${min_p:.0f}-${max_p:.0f} (сортировка: цена ↑ + пробег ↑)",
                            "отчет3.txt")
         
         elif choice == '4':
@@ -143,4 +149,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+if __name__ == '__main__':
+    main()
+
 
