@@ -89,7 +89,7 @@ def print_report_to_console(cars, title, limit=10):
     print("№   Марка       Модель         Год   Тип кузова      Пробег     Цена")
     print("-" * 80)
     
-    # Ограничиваем вывод для удобства просмотра
+    # Вывод на консоль
     display_cars = cars[::]
     for i, car in enumerate(display_cars, 1):
         print(f"{i:3}. {car['brand']:10} {car['model']:12} "
@@ -99,3 +99,4 @@ def print_report_to_console(cars, title, limit=10):
     
     print(f"\nВсего автомобилей: {len(cars)}")
     print("=" * 80)
+
